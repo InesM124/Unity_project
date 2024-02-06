@@ -118,4 +118,9 @@ public class PlayerMovement : MonoBehaviour
         Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput).normalized * currentSpeed;
         GetComponent<Rigidbody>().velocity = transform.TransformDirection(movement);
     }
+    public void ResetSpeed()
+    {
+    currentSpeed = moveSpeed; // Reset speed to its original value
+    }
+
 }
