@@ -9,7 +9,7 @@ public class SphereCoin : MonoBehaviour
     private void Start()
     {
         // Rotate the coin on its local Y-axis
-        RotateCoin();
+        transform.Rotate(Vector3.up, Random.Range(0f, 360f)); // Random initial rotation
     }
 
     private void OnTriggerEnter(Collider other)
@@ -25,12 +25,14 @@ public class SphereCoin : MonoBehaviour
     private void RespawnCoin()
     {
         gameObject.SetActive(true); // Enable the coin
-        RotateCoin(); // Rotate the coin again
+        // Rotate the coin on its local Y-axis
+        transform.Rotate(Vector3.up, Random.Range(0f, 360f)); // Random rotation after respawn
     }
 
-    private void RotateCoin()
+    private void Update()
     {
-        // Rotate the coin on its local Y-axis
+        // Rotate the coin continuously on its local Y-axis
         transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
     }
 }
+
